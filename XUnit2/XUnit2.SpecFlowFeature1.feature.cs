@@ -17,23 +17,18 @@ namespace XUnit2
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.2.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class XUnit2Feature : Xunit.IClassFixture<XUnit2Feature.FixtureData>, System.IDisposable
+    [TechTalk.SpecRun.FeatureAttribute("XUnit2", Description="\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
+        "f two numbers", SourceFile="XUnit2.SpecFlowFeature1.feature", SourceLine=0)]
+    public partial class XUnit2Feature
     {
         
-        private static TechTalk.SpecFlow.ITestRunner testRunner;
+        private TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
-        
-#line 1 "SpecFlowFeature1.feature"
+#line 1 "XUnit2.SpecFlowFeature1.feature"
 #line hidden
         
-        public XUnit2Feature(XUnit2Feature.FixtureData fixtureData, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
-        {
-            this._testOutputHelper = testOutputHelper;
-            this.TestInitialize();
-        }
-        
-        public static void FeatureSetup()
+        [TechTalk.SpecRun.FeatureInitialize()]
+        public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "XUnit2", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
@@ -41,7 +36,8 @@ namespace XUnit2
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        public static void FeatureTearDown()
+        [TechTalk.SpecRun.FeatureCleanup()]
+        public virtual void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
@@ -51,6 +47,7 @@ namespace XUnit2
         {
         }
         
+        [TechTalk.SpecRun.ScenarioCleanup()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
@@ -59,7 +56,6 @@ namespace XUnit2
         public virtual void ScenarioSetup(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioStart(scenarioInfo);
-            testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<Xunit.Abstractions.ITestOutputHelper>(_testOutputHelper);
         }
         
         public virtual void ScenarioCleanup()
@@ -67,16 +63,9 @@ namespace XUnit2
             testRunner.CollectScenarioErrors();
         }
         
-        void System.IDisposable.Dispose()
-        {
-            this.ScenarioTearDown();
-        }
-        
-        [Xunit.FactAttribute(DisplayName="Scenario1")]
-        [Xunit.TraitAttribute("FeatureTitle", "XUnit2")]
-        [Xunit.TraitAttribute("Description", "Scenario1")]
-        [Xunit.TraitAttribute("Category", "Tag2")]
-        [Xunit.TraitAttribute("Category", "calculator")]
+        [TechTalk.SpecRun.ScenarioAttribute("Scenario1", new string[] {
+                "Tag2",
+                "calculator"}, SourceLine=8)]
         public virtual void Scenario1()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Scenario1", new string[] {
@@ -96,11 +85,9 @@ this.ScenarioSetup(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.FactAttribute(DisplayName="Scenario2")]
-        [Xunit.TraitAttribute("FeatureTitle", "XUnit2")]
-        [Xunit.TraitAttribute("Description", "Scenario2")]
-        [Xunit.TraitAttribute("Category", "Tag1")]
-        [Xunit.TraitAttribute("Category", "calculator")]
+        [TechTalk.SpecRun.ScenarioAttribute("Scenario2", new string[] {
+                "Tag1",
+                "calculator"}, SourceLine=17)]
         public virtual void Scenario2()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Scenario2", new string[] {
@@ -120,10 +107,9 @@ this.ScenarioSetup(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.FactAttribute(DisplayName="ignored Scenario", Skip="Ignored")]
-        [Xunit.TraitAttribute("FeatureTitle", "XUnit2")]
-        [Xunit.TraitAttribute("Description", "ignored Scenario")]
-        [Xunit.TraitAttribute("Category", "calculator")]
+        [TechTalk.SpecRun.ScenarioAttribute("ignored Scenario", new string[] {
+                "calculator"}, SourceLine=25)]
+        [TechTalk.SpecRun.IgnoreAttribute()]
         public virtual void IgnoredScenario()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ignored Scenario", new string[] {
@@ -143,20 +129,10 @@ this.ScenarioSetup(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.2.0.0")]
-        [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        public class FixtureData : System.IDisposable
+        [TechTalk.SpecRun.TestRunCleanup()]
+        public virtual void TestRunCleanup()
         {
-            
-            public FixtureData()
-            {
-                XUnit2Feature.FeatureSetup();
-            }
-            
-            void System.IDisposable.Dispose()
-            {
-                XUnit2Feature.FeatureTearDown();
-            }
+            TechTalk.SpecFlow.TestRunnerManager.GetTestRunner().OnTestRunEnd();
         }
     }
 }
